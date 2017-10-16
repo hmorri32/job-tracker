@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20171016221127) do
     t.bigint   "job_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index    ["job_id"], name: "index_comments_on_job_id"
+    t.index    ["job_id"],   name: "index_comments_on_job_id"
   end
 
   create_table "companies", force: :cascade do |t|
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20171016221127) do
     t.string   "city"
     t.bigint   "category_id"
     t.index    ["category_id"], name: "index_jobs_on_category_id"
-    t.index    ["company_id"], name: "index_jobs_on_company_id"
+    t.index    ["company_id"],  name: "index_jobs_on_company_id"
   end
 
   add_foreign_key "comments", "jobs"

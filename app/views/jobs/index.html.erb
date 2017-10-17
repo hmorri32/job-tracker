@@ -8,3 +8,11 @@ All Jobs for <strong><%= @company.name %></strong>
   </li>
   <% end %>
 </ul>
+
+<% @company.contacts.each do |contact| %>
+  <%= contact.name %>
+  <%= contact.position %>
+  <%= contact.email %>
+<% end %>
+
+<%= render partial: "contacts/form" %>

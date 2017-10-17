@@ -16,5 +16,17 @@ Company: <%= link_to @job.company.name, company_path(@job.company) %>
   <br>Category: <%= @job.category.title %>
 <% end %>
 
+
+
 <br><%=    link_to "Delete", company_job_path(@job.company,      @job), method: :delete %>
 <br><p><%= link_to "Edit",   edit_company_job_path(@job.company, @job), class:  "btn btn-success" %></p>
+
+
+<h2>Comments</h2>
+
+<% @job.comments.reverse.each do |comment| %>
+  <%= comment.content %>
+  (<%= time_ago_in_words(comment.created_at) %> ago)
+<% end %>
+
+<%= render partial: "comments/form" %>

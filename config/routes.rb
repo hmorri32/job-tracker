@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :jobs
   end
 
+  resources :jobs, only: []  do
+    resources :comments, only: [:create]
+  end
+
   resources :categories
 end

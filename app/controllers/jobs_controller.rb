@@ -16,7 +16,7 @@ class JobsController < ApplicationController
       @jobs = Job.where(city: params[:location])
       render :city
     else
-      @jobs    = @company.jobs if @company
+      @jobs    = @company.jobs
       @contact = Contact.new
     end
   end

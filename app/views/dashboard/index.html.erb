@@ -1,0 +1,18 @@
+<h1>Job Count by Level of Interest</h1>
+
+<table>
+  <thead>
+    <th>
+      Interest Level Range
+    </th>
+      <% interest_levels.each do |range| %>
+        <td><%= range %></td>
+      <% end %>
+    </thead>
+    <tbody>
+      <th>Number of Jobs</th>
+      <% jobs_in_level.each do |number| %>
+        <td><%= number %></td>
+      <% end %>
+    </tbody>
+  </table>

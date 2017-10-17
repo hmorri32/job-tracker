@@ -6,9 +6,12 @@ Rails.application.routes.draw do
     resources :contacts
   end
 
-  resources :jobs, :only => []  do
+  resources :jobs, :only => [:index]  do
     resources :comments, :only => [:create]
   end
 
   resources :categories
 end
+
+# custom routes
+# namespace routes

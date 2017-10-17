@@ -1,15 +1,29 @@
 class JobsController < ApplicationController
-  before_action :set_job, only: [:show, :edit, :update, :destroy]
+  before_action :set_job,     only: [:show, :edit, :update, :destroy]
+  before_action :set_company, only: [:index]
 
   def index
-    @company = Company.find(params[:company_id])
-    @jobs    = @company.jobs
-    @contact = Contact.new
+
+    case
+    when params[:sort] == 'interest'
+      @jobs = Job.order(:level_of_interest)
+      render :interest_sorted
+    when params[:sort] == 'location'
+      @jobs = Job.order(:city)
+      render :location_sorted
+    when params[:location]
+      @city = params[:location]
+      @jobs = Job.where(city: params[:location])
+      render :city
+    else
+      @jobs    = @company.jobs if @company
+      @contact = Contact.new
+    end
   end
 
   def new
     @company = Company.find(params[:company_id])
-    @job = Job.new
+    @job     = Job.new
   end
 
   def create
@@ -48,6 +62,10 @@ class JobsController < ApplicationController
   end
 
   private
+
+  def set_company
+    @company = Company.find(params[:company_id]) if params[:company_id]
+  end
 
   def set_job
     @job = Job.find(params[:id])

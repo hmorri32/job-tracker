@@ -13,6 +13,3 @@ Rails.application.routes.draw do
   resources :dashboard, :only => [:index]
   resources :categories
 end
-
-# custom routes
-# namespace routes

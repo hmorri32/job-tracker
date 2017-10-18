@@ -13,10 +13,10 @@
           <%= job.city %>
         </td>
         <td>
-          <%= job.title %>
+          <%= link_to job.title, company_job_path(job.company, job) %>
         </td>
         <td>
-          <%= job.company.name %>
+          <%= link_to job.company.name, company_path(job.company, job) %>
         </td>
         <td>
           <%= job.description %>

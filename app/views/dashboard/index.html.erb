@@ -1,0 +1,30 @@
+<h1>Job Count by Level of Interest</h1><br>
+
+<table>
+  <thead>
+    <th>
+      Interest Level Range
+    </th>
+    <% interest_levels.each do |range| %>
+      <td><%= range %></td>
+    <% end %>
+  </thead>
+  <tbody>
+    <th>Number of Jobs</th>
+    <% jobs_in_level.each do |number| %>
+      <td><%= number %></td>
+    <% end %>
+  </tbody>
+</table>
+
+<br><h1>TOp COmpanies</h1>
+<% top_three_companies.each do |name, level| %>
+  <br><%= link_to name, company_path(Company.find_by(name: name)) %>: <%= level %>
+<% end %>
+
+<br><br> Job Count by City
+
+<br>
+<% jobs_by_city.each do |city, job_count| %>
+  <%= link_to city, "jobs?location=#{city}" %>: <%= job_count %>
+<% end %>

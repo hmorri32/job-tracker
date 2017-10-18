@@ -1,0 +1,9 @@
+JOBS SORTED BY INTEREST LEVEL
+
+
+<% @jobs.reverse.each do |job| %>
+  <%= job.title %>
+  <%= job.level_of_interest %>
+<% end %>
+
+<%= @jobs.length %>

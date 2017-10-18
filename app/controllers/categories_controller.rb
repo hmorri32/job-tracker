@@ -16,7 +16,6 @@ class CategoriesController < ApplicationController
       flash[:success] = "#{@category.title} created!"
       redirect_to categories_path
     else
-      @errors = @category.errors.full_messages
       redirect_to new_category_path
     end
   end

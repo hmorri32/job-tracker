@@ -1,19 +1,27 @@
-All Jobs for <strong><%= @company.name %></strong>
-<%= link_to "Create new job", new_company_job_path %>
+<div class='container'>
+  <h3>All Jobs @ <%= @company.name %> </h3>
 
-<ul>
   <% @jobs.each do |job| %>
-  <li>
     <%= link_to job.title, company_job_path(@company, job.id) %>
-  </li>
   <% end %>
-</ul>
 
+  <h3>(Or: <%= link_to "Create new job", new_company_job_path %>)</h3>
 
-<% @company.contacts.each do |contact| %>
-  <%= contact.name %>
-  <%= contact.position %>
-  <%= contact.email %>
-<% end %>
+  <% if @company.contacts %>
+    <h3>Contacts</h3>
+    <% @company.contacts.each do |contact| %>
+    <div class='companies'>
+      <h3>Name: <span><%= contact.name %></span>
+      <h3>
+        Position: <span><%= contact.position %></span>
+      </h3>
+      <h3>
+        Email: <span><%= contact.email %></span>
+      </h3>
+    </div>
+    <% end %>
+  <% end %>
 
-<%= render partial: "contacts/form" %>
+  <h3>Create a new Concact</h3>
+  <%= render partial: "contacts/form" %>
+</div>

@@ -1,5 +1,3 @@
-# TODO TEAL NAD BOLDD EVYERHIGNG
-
 module DashboardHelper
   def top_three_companies
     # stuff = Job.group(:company_id)

@@ -1,4 +1,4 @@
-<div class='container'>
+
   <h3>Jobs in <%= @city %> </h3>
 
   <% @jobs.each do |job| %>
@@ -7,4 +7,3 @@
     <%= link_to job.title, company_job_path(job.company, job) %>
   </div>
   <% end %>
-</div>

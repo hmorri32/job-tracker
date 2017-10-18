@@ -1,6 +1,47 @@
 @import "variables";
 
+body {
+  font-family     : $playfair;
+}
+
+.header {
+  background-color: $black-pearl;
+  position: fixed;
+  display: flex;
+  align-items: baseline;
+  z-index: 50;
+  justify-content: space-between;
+  width: 100%;
+  h3 {
+    text-decoration : none;
+    font-size: 2.5em;
+    padding: 15px;
+    color: $whitish;
+    span {
+      color: $desaturated;
+      font-weight: $ultra-bold;
+    }
+  }
+  ul {
+    display: flex;
+  }
+  a, li {
+    text-decoration : none;
+    margin          : 5px;
+    padding         : 5px;
+    font-size: 1.2em;
+    color: $whitish;
+    outline         : none;
+  }
+  a:hover {
+    color: $desaturated;
+    text-decoration: underline;
+  }
+}
+
 .container {
+  position: relative;
+  top: 70px;
   width           : 100%;
   display         : flex;
   justify-content : center;

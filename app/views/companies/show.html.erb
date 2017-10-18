@@ -1,8 +1,7 @@
 <!-- maybe delete this. -->
-<div class='container'>
+
   <h2>All Jobs for <strong><%= @company.name %></strong></h2>
 
   <% @company.jobs.each do |job| %>
     <ul><%= job.title %></ul>
   <% end %>
-</div>

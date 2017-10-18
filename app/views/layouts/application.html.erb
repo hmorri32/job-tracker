@@ -7,10 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |name, msg| %>
-    <%= content_tag :div, msg, class: name %>
-  <% end %>
-<%= yield %>
 
+
+<div class='header'>
+  <h3>job<span>Track</span></h3>
+  <ul>
+     <li><%= link_to 'dashboard', dashboard_index_path %></li>
+     <li><%= link_to 'companies', companies_path %></li>
+     <li><%= link_to 'categories', categories_path%></li>
+  </ul>
+</div>
+
+
+<div class='container'>
+ <% flash.each do |name, msg| %>
+   <%= content_tag :div, msg, class: name %>
+ <% end %>
+
+<%= yield %>
+</div>
 </body>
 </html>

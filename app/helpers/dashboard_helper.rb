@@ -11,11 +11,11 @@ module DashboardHelper
     # stuff.map { |arr| Company.find(arr[0]) }
 
     stuff = Company.joins(:jobs)
-                  .group(:id)
-                  .order("avg(jobs.level_of_interest)")
-                  .reverse_order
-                  .limit(3)
-                  .average(:level_of_interest)
+                   .group(:id)
+                   .order("avg(jobs.level_of_interest)")
+                   .reverse_order
+                   .limit(3)
+                   .average(:level_of_interest)
 
     stuff.reduce({}) do |hash, stats|
       hash[Company.find(stats[0]).name] = stats[-1].to_i; hash

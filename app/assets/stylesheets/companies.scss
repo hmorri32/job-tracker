@@ -5,21 +5,21 @@ body {
 }
 
 .header {
-  background-color: $black-pearl;
-  position: fixed;
-  display: flex;
-  align-items: baseline;
-  z-index: 50;
-  justify-content: space-between;
-  width: 100%;
+  background-color : $black-pearl;
+  position         : fixed;
+  display          : flex;
+  align-items      : center;
+  z-index          : 50;
+  justify-content  : space-between;
+  width            : 100%;
   h3 {
     text-decoration : none;
-    font-size: 2.5em;
-    padding: 15px;
-    color: $whitish;
+    font-size       : 2.5em;
+    padding         : 15px;
+    color           : $whitish;
     span {
-      color: $desaturated;
-      font-weight: $ultra-bold;
+      color       : $desaturated;
+      font-weight : $ultra-bold;
     }
   }
   ul {
@@ -29,19 +29,19 @@ body {
     text-decoration : none;
     margin          : 5px;
     padding         : 5px;
-    font-size: 1.2em;
-    color: $whitish;
+    font-size       : 1.2em;
+    color           : $whitish;
     outline         : none;
   }
   a:hover {
-    color: $desaturated;
-    text-decoration: underline;
+    color           : $desaturated;
+    text-decoration : underline;
   }
 }
 
 .container {
-  position: relative;
-  top: 70px;
+  position        : relative;
+  top             : 70px;
   width           : 100%;
   display         : flex;
   justify-content : center;
@@ -62,14 +62,14 @@ body {
   table {
     width: 100%;
     td {
-      text-align: center;
-      padding: 5px;
+      text-align : center;
+      padding    : 5px;
     }
   }
 
   h2 {
-    font-size: 1.4em;
-    margin: 4px;
+    font-size : 1.4em;
+    margin    : 4px;
   }
 
   p {
@@ -143,8 +143,8 @@ body {
   .form input:active,
   .form input:focus,
   .form input:hover {
-    color: #22313F;
-    background: white;
+    color      : #22313F;
+    background : white;
   }
 
   .form {

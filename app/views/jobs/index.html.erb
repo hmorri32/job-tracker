@@ -5,9 +5,9 @@
     <%= link_to job.title, company_job_path(@company, job.id) %>
   <% end %>
 
-  <h3>(Or: <%= link_to "Create new job", new_company_job_path %>)</h3>
+  <h3>(Or: <%= link_to "Create New Job", new_company_job_path %>)</h3>
 
-  <% if @company.contacts %>
+  <% if @company.contacts.length > 0 %>
     <h3>Contacts</h3>
     <% @company.contacts.each do |contact| %>
     <div class='companies'>
@@ -22,6 +22,6 @@
     <% end %>
   <% end %>
 
-  <h3>Create a new Concact</h3>
+  <h3>Create a New Concact</h3>
   <%= render partial: "contacts/form" %>
 </div>

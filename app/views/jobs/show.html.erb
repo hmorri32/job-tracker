@@ -1,32 +1,55 @@
-Title: <%= @job.title %>
-<br>
+<div class='container'>
 
-Description: <%= @job.description %>
-<br>
+  <h3>Titile:
+    <span>
+      <%= @job.title %>
+    </span>
+  </h3>
+  <h3>Description:
+    <span>
+      <%= @job.description %>
+    </span>
+  </h3>
+  <h3>Level of Interest:
+    <span>
+      <%= @job.level_of_interest %>
+    </span>
+  </h3>
+  <h3>City:
+    <span>
+      <%= @job.city %>
+    </span>
+  </h3>
+  <h3>Company:
+    <span>
+      <%= link_to @job.company.name, company_path(@job.company) %>
+    </span>
+  </h3>
 
-Level of Interest: <%= @job.level_of_interest %>
-<br>
-
-City: <%= @job.city %>
-<br>
-
-Company: <%= link_to @job.company.name, company_path(@job.company) %>
-
-<% if @job.category %>
-  <br>Category: <%= @job.category.title %>
-<% end %>
+  <% if @job.category %>
+    <br>Category: <%= @job.category.title %>
+  <% end %>
 
 
+  <h3>
+    (<%= link_to "Delete", company_job_path(@job.company,      @job), method: :delete %>)
+  </h3>
+  <h3>
+    (<%= link_to "Edit",   edit_company_job_path(@job.company, @job), class:  "btn btn-success" %>)
+  </h3>
 
-<br><%=    link_to "Delete", company_job_path(@job.company,      @job), method: :delete %>
-<br><p><%= link_to "Edit",   edit_company_job_path(@job.company, @job), class:  "btn btn-success" %></p>
+  <% if @job.comments.length > 0 %>
+    <h3>Comments</h3>
+    <% @job.comments.reverse.each do |comment| %>
+    <h2>
+      <%= comment.content %>
+    </h2>
+    <p>
+      (<%= time_ago_in_words(comment.created_at) %> ago)
+    </p>
+    <% end %>
+  <% end %>
 
-
-<h2>Comments</h2>
-
-<% @job.comments.reverse.each do |comment| %>
-  <%= comment.content %>
-  (<%= time_ago_in_words(comment.created_at) %> ago)
-<% end %>
-
-<%= render partial: "comments/form" %>
+  <h3>Create a Comment</h3>
+  <%= render partial: "comments/form" %>
+</div>

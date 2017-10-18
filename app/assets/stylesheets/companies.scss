@@ -19,6 +19,15 @@
     }
   }
 
+  h2 {
+    font-size: 1.4em;
+    margin: 4px;
+  }
+
+  p {
+    margin: 5px;
+  }
+
   a {
     text-decoration : none;
     margin          : 5px;
@@ -54,6 +63,7 @@
     margin          : auto;
     align-items     : center;
     justify-content : center;
+    color: $whitish;
   }
 
   form {
@@ -65,7 +75,7 @@
     width           : 75%;
   }
 
-  input {
+  input, select {
     box-sizing      : border-box;
     margin          : 0 0 15px;
     outline         : 0;
@@ -79,6 +89,7 @@
     text-transform  : uppercase;
     font-size       : 14px;
     text-align      : center;
+    text-align-last: center;
   }
 
   .form input:active,

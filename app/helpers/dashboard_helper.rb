@@ -38,6 +38,8 @@ module DashboardHelper
   end
 
   def jobs_by_city
-    Job.group(:city).count
+    Job.group(:city)
+       .order("count_id DESC")
+       .count(:id)
   end
 end

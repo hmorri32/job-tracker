@@ -1,5 +1,10 @@
-<h1>Jobs in <%= @city %> </h1>
+<div class='container'>
+  <h3>Jobs in <%= @city %> </h3>
 
-<% @jobs.each do |job| %>
-  <%= link_to job.title, company_job_path(job.company, job) %>
-<% end %>
+  <% @jobs.each do |job| %>
+  <div class='companies'>
+    <h2><%= link_to job.company.name, company_path(job.company, job) %></h2>
+    <%= link_to job.title, company_job_path(job.company, job) %>
+  </div>
+  <% end %>
+</div>

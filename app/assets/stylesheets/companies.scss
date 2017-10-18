@@ -9,13 +9,20 @@
   font-family     : $playfair;
   color           : $black-pearl;
 
-  h3 {
+  h3, th {
     text-align  : center;
     font-weight : $ultra-bold;
     font-size   : 2em;
     margin      : 30px;
     span {
       font-weight: 400;
+    }
+  }
+  table {
+    width: 100%;
+    td {
+      text-align: center;
+      padding: 5px;
     }
   }
 

@@ -1,24 +1,27 @@
-<table>
-  <tr>
-    <th>City</th>
-    <th>Title</th>
-    <th>Company</th>
-    <th>Description</th>
-  </tr>
-  <% @jobs.each do |job| %>
+<div class='container'>
+  <h3>Jobs Sorted by Location</h3>
+  <table>
     <tr>
-      <td>
-        <%= job.city %>
-      </td>
-      <td>
-        <%= job.title %>
-      </td>
-      <td>
-        <%= job.company.name %>
-      </td>
-      <td>
-        <%= job.description %>
-      </td>
+      <th>City</th>
+      <th>Title</th>
+      <th>Company</th>
+      <th>Description</th>
     </tr>
-  <% end %>
-</table>
+    <% @jobs.each do |job| %>
+      <tr>
+        <td>
+          <%= job.city %>
+        </td>
+        <td>
+          <%= job.title %>
+        </td>
+        <td>
+          <%= job.company.name %>
+        </td>
+        <td>
+          <%= job.description %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</div>

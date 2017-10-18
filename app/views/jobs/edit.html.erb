@@ -1,3 +1,10 @@
-<h1>edit <%= @job.title %></h1>
+<div class='container'>
 
-<%= render partial: "form" %>
+  <h3>Edit <%= @job.title %> @ <%= @company.name %></h3>
+
+  <div class='form-container'>
+    <div class='form'>
+      <%= render partial: "form" %>
+    </div>
+  </div>
+</div>

@@ -1,5 +1,9 @@
 <div class='container'>
 
+  <h3>Company:
+    <span>
+      <%= link_to @job.company.name, company_path(@job.company) %>
+    </span>
   <h3>Titile:
     <span>
       <%= @job.title %>
@@ -20,10 +24,6 @@
       <%= @job.city %>
     </span>
   </h3>
-  <h3>Company:
-    <span>
-      <%= link_to @job.company.name, company_path(@job.company) %>
-    </span>
   </h3>
 
   <% if @job.category %>
@@ -41,12 +41,12 @@
   <% if @job.comments.length > 0 %>
     <h3>Comments</h3>
     <% @job.comments.reverse.each do |comment| %>
-    <h2>
-      <%= comment.content %>
-    </h2>
-    <p>
-      (<%= time_ago_in_words(comment.created_at) %> ago)
-    </p>
+      <h2>
+        <%= comment.content %>
+      </h2>
+      <p>
+        (<%= time_ago_in_words(comment.created_at) %> ago)
+      </p>
     <% end %>
   <% end %>
 

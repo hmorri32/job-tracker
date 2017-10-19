@@ -1,26 +1,25 @@
-
-  <h3>Jobs Sorted by Location</h3>
-  <table>
+ <h3>Jobs Sorted by Location</h3>
+<table>
+  <tr>
+    <th>City</th>
+    <th>Title</th>
+    <th>Company</th>
+    <th>Description</th>
+  </tr>
+  <% @jobs.each do |job| %>
     <tr>
-      <th>City</th>
-      <th>Title</th>
-      <th>Company</th>
-      <th>Description</th>
+      <td>
+        <%= job.city %>
+      </td>
+      <td>
+        <%= link_to job.title, company_job_path(job.company, job) %>
+      </td>
+      <td>
+        <%= link_to job.company.name, company_path(job.company, job) %>
+      </td>
+      <td>
+        <%= job.description %>
+      </td>
     </tr>
-    <% @jobs.each do |job| %>
-      <tr>
-        <td>
-          <%= job.city %>
-        </td>
-        <td>
-          <%= link_to job.title, company_job_path(job.company, job) %>
-        </td>
-        <td>
-          <%= link_to job.company.name, company_path(job.company, job) %>
-        </td>
-        <td>
-          <%= job.description %>
-        </td>
-      </tr>
-    <% end %>
-  </table>
+  <% end %>
+</table>

@@ -1,11 +1,10 @@
+<h3>
+  JOBS SORTED BY INTEREST LEVEL
+</h3>
+<% @jobs.reverse.each do |job| %>
+<div class="companies">
+  <h3>Title: <span><%= link_to job.title, company_job_path(job.company, job) %></span></h3>
 
-  <h3>
-    JOBS SORTED BY INTEREST LEVEL
-  </h3>
-  <% @jobs.reverse.each do |job| %>
-  <div class="companies">
-    <h3>Title: <span><%= link_to job.title, company_job_path(job.company, job) %></span></h3>
-
-    <h3>Interest Level: <span><%= job.level_of_interest %></span></h3>
-  </div>
-  <% end %>
+  <h3>Interest Level: <span><%= job.level_of_interest %></span></h3>
+</div>
+<% end %>

@@ -1,26 +1,25 @@
+ <h3>All Jobs @ <%= @company.name %> </h3>
 
-  <h3>All Jobs @ <%= @company.name %> </h3>
+<% @jobs.each do |job| %>
+  <%= link_to job.title, company_job_path(@company, job.id) %>
+<% end %>
 
-  <% @jobs.each do |job| %>
-    <%= link_to job.title, company_job_path(@company, job.id) %>
+<h3>(Or: <%= link_to "Create New Job", new_company_job_path %>)</h3>
+
+<% if @company.contacts.length > 0 %>
+  <h3>Contacts</h3>
+  <% @company.contacts.each do |contact| %>
+  <div class='companies'>
+    <h3>Name: <span><%= contact.name %></span>
+    <h3>
+      Position: <span><%= contact.position %></span>
+    </h3>
+    <h3>
+      Email: <span><%= contact.email %></span>
+    </h3>
+  </div>
   <% end %>
+<% end %>
 
-  <h3>(Or: <%= link_to "Create New Job", new_company_job_path %>)</h3>
-
-  <% if @company.contacts.length > 0 %>
-    <h3>Contacts</h3>
-    <% @company.contacts.each do |contact| %>
-    <div class='companies'>
-      <h3>Name: <span><%= contact.name %></span>
-      <h3>
-        Position: <span><%= contact.position %></span>
-      </h3>
-      <h3>
-        Email: <span><%= contact.email %></span>
-      </h3>
-    </div>
-    <% end %>
-  <% end %>
-
-  <h3>Create a New Concact</h3>
-  <%= render partial: "contacts/form" %>
+<h3>Create a New Concact</h3>
+<%= render partial: "contacts/form" %>

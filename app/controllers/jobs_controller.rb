@@ -13,12 +13,7 @@ class JobsController < ApplicationController
 
   def create
     @job = @company.jobs.new(job_params)
-    if @job.save
-      flash[:success] = "You created #{@job.title} at #{@company.name}"
-      redirect_to company_job_path(@company, @job)
-    else
-      render :new
-    end
+    create_job(@job)
   end
 
   def show
@@ -30,12 +25,7 @@ class JobsController < ApplicationController
 
   def update
     @job.update(job_params)
-    if @job.save
-      flash[:success] ="#{@job.title} updated!"
-      redirect_to company_job_path(@job.company, @job)
-    else
-      render :edit
-    end
+    save(@job)
   end
 
   def destroy

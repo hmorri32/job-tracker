@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  include CategoriesHelper
   before_action :set_category, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,12 +12,7 @@ class CategoriesController < ApplicationController
 
   def create
     @category = Category.new(category_params)
-    if @category.save
-      flash[:success] = "#{@category.title} created!"
-      redirect_to categories_path
-    else
-      redirect_to new_category_path
-    end
+    create_category(@category)
   end
 
   def show
@@ -27,12 +23,7 @@ class CategoriesController < ApplicationController
   end
 
   def update
-    if @category.update(category_params)
-      flash[:success] = "#{@category.title} updated!"
-      redirect_to categories_path
-    else
-      render :edit
-    end
+    update_category(@category)
   end
 
   def destroy

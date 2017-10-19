@@ -17,4 +17,22 @@ module JobsHelper
       @contact = Contact.new
     end
   end
+
+  def save(job)
+    if job.save
+      flash[:success] ="#{job.title} updated!"
+      redirect_to company_job_path(job.company, job)
+    else
+      render :edit
+    end
+  end
+
+  def create_job(job)
+    if job.save
+      flash[:success] = "You created #{job.title} at #{@company.name}"
+      redirect_to company_job_path(@company, job)
+    else
+      render :new
+    end
+  end
 end

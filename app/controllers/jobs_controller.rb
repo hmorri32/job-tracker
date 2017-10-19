@@ -1,33 +1,17 @@
 class JobsController < ApplicationController
+  include JobsHelper
   before_action :set_job,     only: [:show, :edit, :update, :destroy]
-  before_action :set_company, only: [:index]
+  before_action :set_company, only: [:index, :new, :create, :edit]
 
   def index
-
-    case
-    when params[:sort] == 'interest'
-      @jobs = Job.order(:level_of_interest)
-      render :interest_sorted
-    when params[:sort] == 'location'
-      @jobs = Job.order(:city)
-      render :location_sorted
-    when params[:location]
-      @city = params[:location]
-      @jobs = Job.where(city: params[:location])
-      render :city
-    else
-      @jobs    = @company.jobs
-      @contact = Contact.new
-    end
+    delegate(params)
   end
 
   def new
-    @company = Company.find(params[:company_id])
-    @job     = Job.new
+    @job = Job.new
   end
 
   def create
-    @company = Company.find(params[:company_id])
     @job = @company.jobs.new(job_params)
     if @job.save
       flash[:success] = "You created #{@job.title} at #{@company.name}"
@@ -42,7 +26,6 @@ class JobsController < ApplicationController
   end
 
   def edit
-    @company = Company.find(params[:company_id])
   end
 
   def update

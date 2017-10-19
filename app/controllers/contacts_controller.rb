@@ -1,22 +1,19 @@
 class ContactsController < ApplicationController
+  include ContactsHelper
   before_action :set_company, :only => [:new, :create]
 
   def create
     @jobs    = @company.jobs
     @contact = Contact.new(contact_params)
     @contact.company_id = @company.id
-    if @contact.save
-      flash[:success] = "#{@contact.name} added!"
-      redirect_to company_path(@contact.company)
-    else
-      redirect_to company_path(@contact.company)
-    end
+    create_contact(@contact)
   end
 
   def index
   end
 
   private
+
   def set_company
     @company = Company.find(params[:company_id])
   end

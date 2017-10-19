@@ -3,19 +3,19 @@
 
 <table>
   <thead>
-    <% interest_levels.each do |range| %>
+    <% Dashboard.build_range.each do |range| %>
       <td><%= range %></td>
     <% end %>
   </thead>
   <tbody>
-    <% jobs_in_level.each do |number| %>
+    <% Dashboard.jobs.each do |number| %>
       <td><%= number %></td>
     <% end %>
   </tbody>
 </table>
 
 <h3>Top Companies</h3>
-<% top_three_companies.each do |name, level| %>
+<% Dashboard.top_three_companies.each do |name, level| %>
   <div class='companies'>
     <h2><%= link_to name, company_path(Company.find_by(name: name)) %> </h2>
     <h2><%= level %></h2>
@@ -23,7 +23,6 @@
 <% end %>
 
 <h3>Job Count by City</h3>
-<% jobs_by_city.each do |city, job_count| %>
-
+<% Dashboard.jobs_by_city.each do |city, job_count| %>
   <h2><%= link_to city, "jobs?location=#{city}" %>: <%= job_count %></h2>
 <% end %>
